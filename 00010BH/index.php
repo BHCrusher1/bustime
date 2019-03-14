@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<?php
+$site_name = 'バス時刻表'; //サイト名
+$page_title = 'バス時刻表 新京駅→大岡→帝都駅西口 平日ダイヤ'; //ページ名
+$url = 'https://bhcrusher1.net/bustime/00010BH/'; //正規化するURL
+$description = 'バス時刻表です。新京駅→大岡→帝都駅西口 平日ダイヤ'; //検索結果などに表示される説明
+$fb_app_id = ''; //Facebook App ID
+?>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><?php echo $page_title;?></title>
+	<meta name="description" content="<?php echo $description;?>">
+	<link rel="canonical" href="<?php echo $url;?>" />
+	<meta property="og:title" content="<?php echo $page_title;?>" />
+	<meta property="og:type" content="website" /> <!-- 別のものが適していると思ったら変える -->
+	<meta property="og:url" content="<?php echo $url;?>" />
+	<meta property="og:image" content="https://bhcrusher1.net/bustime/banner.jpg" /> <!-- 共有時に表示するバナー画像（絶対パス） -->
+	<meta property="og:site_name" content="<?php echo $site_name;?>" />
+	<meta property="fb:app_id" content="<?php echo $fb_app_id;?>" />
+	<meta property="og:description" content="<?php echo $description;?>" />
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="apple-touch-icon" sizes="180x180" href="/bustime/icon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/bustime/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/bustime/icon/favicon-16x16.png">
+	<link rel="manifest" href="/bustime/icon/site.webmanifest">
+	<link rel="mask-icon" href="/bustime/icon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/bustime/icon/favicon.ico">
+	<meta name="apple-mobile-web-app-title" content="<?php echo $site_name;?>">
+	<meta name="application-name" content="<?php echo $site_name;?>">
+	<meta name="msapplication-TileColor" content="#ffc40d">
+	<meta name="msapplication-TileImage" content="/bustime/icon/mstile-144x144.png">
+	<meta name="msapplication-config" content="/bustime/icon/browserconfig.xml">
+	<meta name="theme-color" content="#2196F3">
+	<link rel="preload" href="/bustime/style.css" as="style">
+	<link rel="stylesheet" href="/bustime/style.css" />
+	<style>
+	main td{width:4.5em;}
+	</style>
+	<script>
+		if ('serviceWorker' in navigator) {
+			console.log("Will the service worker register?");
+			navigator.serviceWorker.register('/bustime/service-worker.js')
+				.then(function(reg){
+					console.log("Yes, it did.");
+				}).catch(function(err) {
+					console.log("No it didn't. This happened: ", err)
+				});
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<h1>バス時刻表</h1>
+		<h2>新京駅→大岡→帝都駅西口</h2>
+		<p>平日ダイヤ (2202年4月1日改正)</p>
+	</header>
+	<main>
+		<div class="transfer_box">
+			<label for="transfer">バス乗り換え</label>
+			<input type="checkbox" id="transfer"/>
+			<div class="transfer_show">
+				<p><a href="/bustime/00000AH/">大橋乗換 ホゲ交通 帝都大学・新帝都駅</a></p>
+				<p>大橋乗換 ホゲ交通 森林駅・県立病院</p>
+				<p>帝都寺前乗換 ホゲ交通 帝都車庫</p>
+				<p>帝都寺前乗換 ピヨ自動車 ニュータウン</p>
+			</div>
+		</div>
+		<nav>
+			<ul class="snsbutton">
+				<li class="share-twitter">
+					<a href="https://twitter.com/intent/tweet?text=<?php echo urlencode($page_title);?>&url=<?php echo urlencode($url);?>" target="_blank" rel="noopener">Twitter</a>
+				</li>
+				<li class="share-facebook">
+					<a href="https://www.facebook.com/share.php?u=<?php echo urlencode($url);?>&t=<?php echo urlencode($page_title);?>" target="_blank" rel="noopener">Facebook</a>
+				</li>
+				<li class="share-line">
+					<a href="https://social-plugins.line.me/lineit/share?url=<?php echo urlencode($url);?>" target="_blank" rel="noopener">LINE</a>
+				</li>
+			</ul>
+		</nav>
+		<table>
+			<thead> <!-- phpでもなんでもいいので、theadに停車場名と着発の区別。tbodyに時刻表本体を入れる -->
+			<tr>
+				<th>新京駅</th>
+				<th>正平</th>
+				<th>新内</th>
+				<th>大岡</th>
+				<th>帝都駅</th>
+			</tr>
+			<tr>
+				<td>発</td>
+				<td>発</td>
+				<td>発</td>
+				<td>発</td>
+				<td>着</td>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>‥</td>
+				<td>‥</td>
+				<td>551</td>
+				<td>554</td>
+				<td>618</td>
+			</tr>
+			<tr>
+				<td>600</td>
+				<td>607</td>
+				<td>612</td>
+				<td>616</td>
+				<td>638</td>
+			</tr>
+			<tr>
+				<td>‥</td>
+				<td>‥</td>
+				<td>623</td>
+				<td>626</td>
+				<td>650</td>
+			</tr>
+			<tr>
+				<td>620</td>
+				<td>627</td>
+				<td>632</td>
+				<td>636</td>
+				<td>658</td>
+			</tr>
+			<tr>
+				<td>630</td>
+				<td>637</td>
+				<td>642</td>
+				<td>646</td>
+				<td>708</td>
+			</tr>
+			<tr>
+				<td>640</td>
+				<td>647</td>
+				<td>652</td>
+				<td>656</td>
+				<td>718</td>
+			</tr>
+			<tr>
+				<td>650</td>
+				<td>657</td>
+				<td>702</td>
+				<td>706</td>
+				<td>728</td>
+			</tr>
+			<tr>
+				<td>703</td>
+				<td>711</td>
+				<td>717</td>
+				<td>721</td>
+				<td>748</td>
+			</tr>
+			<tr>
+				<td>713</td>
+				<td>721</td>
+				<td>727</td>
+				<td>731</td>
+				<td>758</td>
+			</tr>
+			<tr>
+				<td>720</td>
+				<td>728</td>
+				<td>734</td>
+				<td>738</td>
+				<td>805</td>
+			</tr>
+			<tr>
+				<td>728</td>
+				<td>736</td>
+				<td>742</td>
+				<td>746</td>
+				<td>813</td>
+			</tr>
+			<tr>
+				<td>735</td>
+				<td>743</td>
+				<td>749</td>
+				<td>753</td>
+				<td>820</td>
+			</tr>
+			<tr>
+				<td>745</td>
+				<td>753</td>
+				<td>759</td>
+				<td>803</td>
+				<td>830</td>
+			</tr>
+			<tr>
+				<td>755</td>
+				<td>803</td>
+				<td>809</td>
+				<td>813</td>
+				<td>840</td>
+			</tr>
+			<tr>
+				<td>803</td>
+				<td>811</td>
+				<td>817</td>
+				<td>821</td>
+				<td>848</td>
+			</tr>
+			<tr>
+				<td>810</td>
+				<td>818</td>
+				<td>824</td>
+				<td>828</td>
+				<td>855</td>
+			</tr>
+			<tr>
+				<td>820</td>
+				<td>828</td>
+				<td>834</td>
+				<td>838</td>
+				<td>905</td>
+			</tr>
+			<tr>
+				<td>830</td>
+				<td>838</td>
+				<td>844</td>
+				<td>848</td>
+				<td>915</td>
+			</tr>
+			<tr>
+				<td>840</td>
+				<td>848</td>
+				<td>853</td>
+				<td>857</td>
+				<td>921</td>
+			</tr>
+			<tr>
+				<td>855</td>
+				<td>903</td>
+				<td>908</td>
+				<td>912</td>
+				<td>936</td>
+			</tr>
+			<tr>
+				<td>910</td>
+				<td>918</td>
+				<td>923</td>
+				<td>927</td>
+				<td>951</td>
+			</tr>
+			<tr>
+				<td>925</td>
+				<td>933</td>
+				<td>938</td>
+				<td>942</td>
+				<td>1006</td>
+			</tr>
+			<tr>
+				<td>940</td>
+				<td>948</td>
+				<td>953</td>
+				<td>957</td>
+				<td>1021</td>
+			</tr>
+			<tr>
+				<td>955</td>
+				<td>1003</td>
+				<td>1008</td>
+				<td>1012</td>
+				<td>1036</td>
+			</tr>
+			<tr>
+				<td>1010</td>
+				<td>1018</td>
+				<td>1023</td>
+				<td>1027</td>
+				<td>1051</td>
+			</tr>
+			<tr>
+				<td>1025</td>
+				<td>1033</td>
+				<td>1038</td>
+				<td>1042</td>
+				<td>1106</td>
+			</tr>
+			<tr>
+				<td>1040</td>
+				<td>1048</td>
+				<td>1053</td>
+				<td>1057</td>
+				<td>1121</td>
+			</tr>
+			<tr>
+				<td>1055</td>
+				<td>1103</td>
+				<td>1108</td>
+				<td>1112</td>
+				<td>1136</td>
+			</tr>
+			<tr>
+				<td>1110</td>
+				<td>1118</td>
+				<td>1123</td>
+				<td>1127</td>
+				<td>1151</td>
+			</tr>
+			<tr>
+				<td>1125</td>
+				<td>1133</td>
+				<td>1138</td>
+				<td>1142</td>
+				<td>1206</td>
+			</tr>
+			<tr>
+				<td>1140</td>
+				<td>1148</td>
+				<td>1153</td>
+				<td>1157</td>
+				<td>1221</td>
+			</tr>
+			<tr>
+				<td>1155</td>
+				<td>1203</td>
+				<td>1208</td>
+				<td>1212</td>
+				<td>1236</td>
+			</tr>
+			<tr>
+				<td>1210</td>
+				<td>1218</td>
+				<td>1223</td>
+				<td>1227</td>
+				<td>1251</td>
+			</tr>
+			<tr>
+				<td>1225</td>
+				<td>1233</td>
+				<td>1238</td>
+				<td>1242</td>
+				<td>1306</td>
+			</tr>
+			<tr>
+				<td>1240</td>
+				<td>1248</td>
+				<td>1253</td>
+				<td>1257</td>
+				<td>1321</td>
+			</tr>
+			<tr>
+				<td>1255</td>
+				<td>1303</td>
+				<td>1308</td>
+				<td>1312</td>
+				<td>1336</td>
+			</tr>
+			<tr>
+				<td>1310</td>
+				<td>1318</td>
+				<td>1323</td>
+				<td>1327</td>
+				<td>1351</td>
+			</tr>
+			<tr>
+				<td>1325</td>
+				<td>1333</td>
+				<td>1338</td>
+				<td>1342</td>
+				<td>1406</td>
+			</tr>
+			<tr>
+				<td>1340</td>
+				<td>1348</td>
+				<td>1353</td>
+				<td>1357</td>
+				<td>1421</td>
+			</tr>
+			<tr>
+				<td>1355</td>
+				<td>1403</td>
+				<td>1408</td>
+				<td>1412</td>
+				<td>1436</td>
+			</tr>
+			<tr>
+				<td>1410</td>
+				<td>1418</td>
+				<td>1423</td>
+				<td>1427</td>
+				<td>1451</td>
+			</tr>
+			<tr>
+				<td>1425</td>
+				<td>1433</td>
+				<td>1438</td>
+				<td>1442</td>
+				<td>1506</td>
+			</tr>
+			<tr>
+				<td>1440</td>
+				<td>1448</td>
+				<td>1453</td>
+				<td>1457</td>
+				<td>1521</td>
+			</tr>
+			<tr>
+				<td>1455</td>
+				<td>1503</td>
+				<td>1508</td>
+				<td>1512</td>
+				<td>1536</td>
+			</tr>
+			<tr>
+				<td>1510</td>
+				<td>1518</td>
+				<td>1523</td>
+				<td>1527</td>
+				<td>1551</td>
+			</tr>
+			<tr>
+				<td>1525</td>
+				<td>1533</td>
+				<td>1538</td>
+				<td>1542</td>
+				<td>1606</td>
+			</tr>
+			<tr>
+				<td>1540</td>
+				<td>1548</td>
+				<td>1553</td>
+				<td>1557</td>
+				<td>1621</td>
+			</tr>
+			<tr>
+				<td>1555</td>
+				<td>1603</td>
+				<td>1608</td>
+				<td>1612</td>
+				<td>1636</td>
+			</tr>
+			<tr>
+				<td>1610</td>
+				<td>1618</td>
+				<td>1623</td>
+				<td>1627</td>
+				<td>1651</td>
+			</tr>
+			<tr>
+				<td>1625</td>
+				<td>1633</td>
+				<td>1638</td>
+				<td>1642</td>
+				<td>1706</td>
+			</tr>
+			<tr>
+				<td>1640</td>
+				<td>1648</td>
+				<td>1654</td>
+				<td>1658</td>
+				<td>1725</td>
+			</tr>
+			<tr>
+				<td>1655</td>
+				<td>1703</td>
+				<td>1709</td>
+				<td>1713</td>
+				<td>1740</td>
+			</tr>
+			<tr>
+				<td>1710</td>
+				<td>1718</td>
+				<td>1724</td>
+				<td>1728</td>
+				<td>1755</td>
+			</tr>
+			<tr>
+				<td>1725</td>
+				<td>1733</td>
+				<td>1739</td>
+				<td>1743</td>
+				<td>1810</td>
+			</tr>
+			<tr>
+				<td>1740</td>
+				<td>1748</td>
+				<td>1754</td>
+				<td>1758</td>
+				<td>1825</td>
+			</tr>
+			<tr>
+				<td>1755</td>
+				<td>1803</td>
+				<td>1809</td>
+				<td>1813</td>
+				<td>1840</td>
+			</tr>
+			<tr>
+				<td>1810</td>
+				<td>1818</td>
+				<td>1824</td>
+				<td>1828</td>
+				<td>1855</td>
+			</tr>
+			<tr>
+				<td>1825</td>
+				<td>1833</td>
+				<td>1839</td>
+				<td>1843</td>
+				<td>1910</td>
+			</tr>
+			<tr>
+				<td>1840</td>
+				<td>1848</td>
+				<td>1854</td>
+				<td>1858</td>
+				<td>1925</td>
+			</tr>
+			<tr>
+				<td>1855</td>
+				<td>1903</td>
+				<td>1909</td>
+				<td>1913</td>
+				<td>1940</td>
+			</tr>
+			<tr>
+				<td>1910</td>
+				<td>1918</td>
+				<td>1924</td>
+				<td>1928</td>
+				<td>1955</td>
+			</tr>
+			<tr>
+				<td>1925</td>
+				<td>1933</td>
+				<td>1939</td>
+				<td>1943</td>
+				<td>2010</td>
+			</tr>
+			<tr>
+				<td>1940</td>
+				<td>1947</td>
+				<td>1952</td>
+				<td>1956</td>
+				<td>2018</td>
+			</tr>
+			<tr>
+				<td>1955</td>
+				<td>2002</td>
+				<td>2007</td>
+				<td>2011</td>
+				<td>2033</td>
+			</tr>
+			<tr>
+				<td>2010</td>
+				<td>2017</td>
+				<td>2022</td>
+				<td>2026</td>
+				<td>2048</td>
+			</tr>
+			<tr>
+				<td>2022</td>
+				<td>2029</td>
+				<td>2034</td>
+				<td>2038</td>
+				<td>2100</td>
+			</tr>
+			<tr>
+				<td>2035</td>
+				<td>2042</td>
+				<td>2047</td>
+				<td>2051</td>
+				<td>2113</td>
+			</tr>
+			<tr>
+				<td>2050</td>
+				<td>2057</td>
+				<td>2107</td>
+				<td>2106</td>
+				<td>2128</td>
+			</tr>
+			<tr>
+				<td>2105</td>
+				<td>2112</td>
+				<td>2117</td>
+				<td>2121</td>
+				<td>2143</td>
+			</tr>
+			<tr>
+				<td>2120</td>
+				<td>2127</td>
+				<td>2132</td>
+				<td>2136</td>
+				<td>2158</td>
+			</tr>
+			<tr>
+				<td>2135</td>
+				<td>2142</td>
+				<td>2147</td>
+				<td>2151</td>
+				<td>2213</td>
+			</tr>
+			<tr>
+				<td>2150</td>
+				<td>2157</td>
+				<td>2202</td>
+				<td>2206</td>
+				<td>2228</td>
+			</tr>
+			<tr>
+				<td>2210</td>
+				<td>2217</td>
+				<td>2222</td>
+				<td>2226</td>
+				<td>2248</td>
+			</tr>
+			<tr>
+				<td>2230</td>
+				<td>2237</td>
+				<td>2242</td>
+				<td>2246</td>
+				<td>2308</td>
+			</tr>
+			<tr>
+				<td>2250</td>
+				<td>2257</td>
+				<td>2302</td>
+				<td>2306</td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<footer>
+		<ul>
+			<li><a href="/bustime/00010AH/">逆方向</a></li>
+			<li class="top"><a href="/bustime/">トップ</a></li>
+			<li><a href="/bustime/00010BK/">休日</a></li>
+		</ul>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+    "lang":"ja",
+    "name": "\u30d0\u30b9\u6642\u523b\u8868",
+    "short_name": "\u30d0\u30b9\u6642\u523b\u8868",
+    "icons": [
+        {
+            "src": "/bustime/icon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/bustime/icon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+	"theme_color": "#2196F3",
+	"background_color": "#ffffff",
+    "start_url": "https://bhcrusher1.net/bustime/",
+    "display": "standalone"
+}

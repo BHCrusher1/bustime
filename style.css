@@ -1,0 +1,229 @@
+@charset "UTF-8";
+html,body{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+}
+@media (max-width:790px){
+	html{
+		font-size: calc(0.8125rem + ((1vw - 3.2px) * 1.0638));
+	}
+}
+@media (min-width: 791px){
+	html{
+	  font-size:18px;
+	}
+}
+body{
+	-webkit-text-size-adjust:100%;
+	font-family: Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+h1{
+	font-size:125%;
+	margin:2vh 0;
+}
+h2{
+	font-size:100%;
+	margin:2vh 0;
+}
+ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+table{
+	text-align: center;
+	border-collapse:collapse;
+	margin:auto;
+}
+a:link{
+	color:#000;
+}
+a:visited{
+	color:#000;
+}
+a:hover{
+	color:#000;
+	text-decoration:underline;
+}
+a:active{
+	color:#000;
+}
+header p{
+	margin:2vh 0;
+}
+main td,main th{
+	border:1px #EEEEEE solid;
+	height:1.5em;
+
+}
+main th{
+	background: #E0E0E0;
+}
+main thead{
+	display: block;
+	white-space:nowrap;
+	height:10vh
+}
+main thead tr{
+	height:5vh;
+}
+main tbody{
+	display: block;
+	white-space:nowrap;
+	overflow-y:scroll;
+	height:58vh;
+	-webkit-overflow-scrolling: touch;
+}
+footer ul{
+	height: 8vh;
+	line-height: 8vh;
+	max-width: 100%;
+	display:flex;
+	justify-content:space-between;
+}
+footer ul li{
+	display: inline-block;
+	width:33vw;
+	background-color:#90CAF9;
+	text-align:center;
+
+}
+footer ul .top{
+	background-color:#64B5F6
+}
+footer ul a{
+	line-height:4vh;
+	display:block;
+	color:#000;
+	text-decoration: none;
+	padding:2vh 0;
+}
+footer ul a:hover{
+	background-color:#42A5F5
+}
+.center{
+	text-align:center;
+}
+.transfer {
+	margin:1vh 0 0 0;
+	line-height:2vh;
+}
+.transfer p{
+	margin:0.25em 0;
+}
+nav{
+	margin:1vh 2vw;
+}
+.snsbutton{
+	height: 3vh;
+	line-height:3vh;
+	display:flex;
+	justify-content:space-between;
+}
+.snsbutton li{
+	width:30%;
+}
+.snsbutton a{
+	text-align:center;
+	border-radius:1.5vh;
+	display:block;
+	color:#FFF;
+	text-decoration:none;
+}
+.snsbutton li.share-twitter a{
+	background:#1DA1F2;
+	box-shadow:0 4px 2px rgba(29, 161, 242,.2);
+}
+.snsbutton li.share-twitter a:hover{
+	background:#4892cb;
+}
+.snsbutton li.share-facebook a{
+	background:#4267b2;
+	box-shadow:0 4px 2px rgba(66, 103, 178,.2)
+}
+.snsbutton li.share-facebook a:hover{
+	background:#365899;
+}
+.snsbutton li.share-google a{
+	background:#db4437;
+	box-shadow:0 4px 2px rgba(219, 68, 55,.2)
+}
+.snsbutton li.share-google a:hover{
+	background:#e47365;
+}
+.snsbutton li.share-line a{
+	background:#1dcd00;
+	box-shadow:0 4px 2px rgba(29, 205, 0,.2)
+}
+.snsbutton li.share-line a:hover{
+	background:#2bd92b;
+}
+.transfer_box{
+	text-align:center;
+	margin: 1vh 0 0 0;
+}
+.transfer_box label {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 3vh;
+	padding: calc(0.5vh - 1px) 6em;
+	border: solid 1px #BDBDBD;
+	border-radius: 0.3em;
+	cursor :pointer;
+	height: 3vh;
+}
+.transfer_box label:hover {
+	background: #E0E0E0;
+}
+.transfer_box input {
+	display: none;
+}
+.transfer_box .transfer_show {
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: 0.5s;
+	text-align:center;
+}
+.transfer_box input:checked ~ .transfer_show {
+	padding: 0;
+	height: auto;
+	opacity: 1;
+}
+.transfer_show {
+	margin:0;
+	line-height:1;
+}
+.transfer_show  p{
+	margin:0.5em 0;
+}
+header{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:14vh;
+	text-align:center;
+	color:#FFF;
+	background-color:#2196F3;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+	line-height: 2vh;
+}
+footer{
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	height:8vh;
+	text-align:center;
+	background-color:#FFF;
+	box-shadow: 0 -2px 5px rgba(0,0,0,0.26);
+}
+main{
+	padding:14vh 0 8vh 0;
+	width:auto;
+	text-align:center;
+}
